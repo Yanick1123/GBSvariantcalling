@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#SBATCH -D /project/fbelzile/users/yaass9/homework/results/variants
+#SBATCH -D PATH/TO/WORKING/DIRECTORY
 #SBATCH -J samtools
 #SBATCH -o samtools%j.out
 #SBATCH -c 4
-#SBATCH -p soyagen	
+#SBATCH -p PARTITION/NAME	
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=yanick.asselin.1@ulaval.ca
+#SBATCH --mail-user=EMAIL/ADDRESS
 #SBATCH --time=1-00:00
 #SBATCH --mem=1G
 
@@ -14,12 +14,12 @@ module load samtools/1.8
 module load bcftools/1.8
 module load htslib/1.8
 
-DATA=/project/fbelzile/users/yaass9/homework/results/mapping/bamlist
-REF=/project/fbelzile/users/yaass9/homework/genome/Gmax_275_v2.0.fa
+DATA=PATH/TO/BAMLIST
+REF=PATH/TO/REF/GENOME
 OUT=variantcalling
 CPU=4
 
-cd /project/fbelzile/users/yaass9/homework/results/variants
+cd PATH/TO/BAMFILES
 
 exec &> samt_var.log
 
