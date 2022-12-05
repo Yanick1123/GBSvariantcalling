@@ -1,19 +1,19 @@
 #!/bin/bash
 
-#SBATCH -D /project/fbelzile/users/yaass9/homework/results/adapt
+#SBATCH -D PATH/TO/YOUR/WORKING/DIRECTORY
 #SBATCH -J cutadapt	
 #SBATCH -o cutadapt%j.out
 #SBATCH -c 1
-#SBATCH -p soyagen	
+#SBATCH -p PARTITION/NAME	
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=yanick.asselin.1@ulaval.ca
+#SBATCH --mail-user=EMAIL/ADDRESS
 #SBATCH --time=1-00:00
 #SBATCH --mem=1G
 
 
 module load cutadapt/3.2
 
-cd /project/fbelzile/users/yaass9/homework/results/barcodes
+cd PATH/TO/DEMULTIPLEXED/DATA
 ADAP=AGATCGGAA
 exec &> cutadapt.log
 for i in *.fq;
@@ -21,4 +21,3 @@ for i in *.fq;
 		cutadapt -a $ADAP -o $i.fastq $i
 	done
 
-#cutadapt -a AGATCGGAA -o /project/fbelzile/users/yaass9/homework/results/adapt/*.fastq /project/fbelzile/users/yaass9/homework/results/barcodes/*.fq
