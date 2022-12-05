@@ -1,19 +1,19 @@
 #!/bin/bash
 
-#SBATCH -D /project/fbelzile/users/yaass9/homework/results/mapping
+#SBATCH -D PATH/TO/YOUR/MAIN/DIRECTORY
 #SBATCH -J bwa
 #SBATCH -o bwa%j.out
 #SBATCH -c 6
-#SBATCH -p soyagen	
+#SBATCH -p PARTITION/NAME	
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=yanick.asselin.1@ulaval.ca
+#SBATCH --mail-user=EMAIL/ADDRESS
 #SBATCH --time=1-00:00
 #SBATCH --mem=6G
 
 module load bwa/0.7.17
 
-DATA=/project/fbelzile/users/yaass9/homework/results/adapt
-REF=/project/fbelzile/users/yaass9/homework/genome/Gmax_275_v2.0.fa
+DATA=PATH/TO/DATA
+REF=PATH/TO/REF/GENOME
 CPU=3
 THR=2
 
