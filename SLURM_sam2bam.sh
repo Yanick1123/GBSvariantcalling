@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#SBATCH -D /project/fbelzile/users/yaass9/homework/results/sam2bam
+#SBATCH -D PATH/TO/WORKING/DIRECTORY
 #SBATCH -J samtools
 #SBATCH -o samtools%j.out
 #SBATCH -c 4
-#SBATCH -p soyagen	
+#SBATCH -p PARTITION/NAME	
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=yanick.asselin.1@ulaval.ca
+#SBATCH --mail-user=EMAIL/ADDRESS
 #SBATCH --time=1-00:00
 #SBATCH --mem=1G
 
@@ -16,7 +16,7 @@ module load htslib/1.15
 
 CPU=4
 
-cd /project/fbelzile/users/yaass9/homework/results/mapping
+cd PATH/TO/MAPPING/FILES
 
 # create a log file
 exec &> convert.log
